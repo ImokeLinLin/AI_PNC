@@ -1,0 +1,6 @@
+project(reference_path_generator)
+file (GLOB_RECUSE CPP_FILES src/*.cpp)
+add_library (${PROJECT_NAME} STATIC ${CPP_FILES})
+target_include_directories (${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries (${PROJECT_NAME} PUBLIC ilgr lib_npp proto path_planner preprocessor ara_star)
+add_definitions ("-Wall")

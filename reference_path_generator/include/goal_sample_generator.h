@@ -4,7 +4,7 @@
 #include "core/framework/frame.h"
 #include "core/modules/common/math/pnc_kdpath.h"
 #include "motion_plan_common.pb.h"
-#include "planning_proto_data.h"
+#include "planning_proto_data.pb.h"
 // #include "pnc_path_with_ppp_input.h"
 namespace reference_path_generator {
 struct GoalInfo {
@@ -38,7 +38,7 @@ class GoalSampleGenerator {
       const RefPoints &ref_points) const;
   double CalcRightRbProtectDistThresh(const RefPoints &ref_points,
                                       const int min_road_width_index) const;
-  bool EgoInNoLBRoad(const RefPoints &ref_points, const int roi_start_idx,
+  bool EgoInNoLBRoad(const RefPoints &RefPoints, const int roi_start_idx,
                      const int roi_end_idx) const;
   bool IsCountryRoad(
       const npp::framework::Frame *frame,

@@ -215,9 +215,9 @@ bool GoalSampleGenerator::GenerateGoalSample(
   MDEBUG_JSON_ADD_ITEM(to_right_diff_distance, to_right_diff_distance, 0)
   const double target_l =
       min_left_border_dist -
-      std::min({min_road_width * kHalf + to_right_diff_distance,
-                min_left_border_dist,
-                (min_road_width - right_rb_protect_dist_thresh)});
+      std::min(std::max((min_road_width * kHalf + to_right_diff_distance),
+                min_left_border_dist),
+                (min_road_width - right_rb_protect_dist_thresh));
   const double goal1_relative_s_to_ego =
       ref_points.at(min_left_border_dist_index).s() -
       ppp_input.init_state().frenet_state().s();
